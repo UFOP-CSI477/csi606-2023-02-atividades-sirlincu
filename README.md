@@ -6,7 +6,7 @@
 - Nome: Lincoln dos Santos Rebouças
 - Matrícula: 20.1.8068
 - Curso: Sistemas de Informação
-- Semestre/Ano correntes: Oitavo semestre no 2023/2
+- Semestre/Ano correntes: 2/2023
 - Link para o seu GitHub: https://github.com/sirlincu
 
 ## [Projeto final:](./Projeto/README.md)
