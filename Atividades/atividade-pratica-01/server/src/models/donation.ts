@@ -71,8 +71,13 @@ class Donation {
 
   static async delete(id: number) {
     try {
-      const sql = `DELETE FROM doacoes WHERE id = ?`;
-      const [result, _] = await db.execute(sql, [id]);
+      if(id){
+        const sql = `DELETE FROM doacoes WHERE id = ?`;
+        const [result, _] = await db.execute(sql, [id]);
+        return result;  
+      }
+      const sql = `DELETE FROM doacoes`;
+      const [result, _] = await db.execute(sql);
       return result;
     } catch (error) {
       throw error;

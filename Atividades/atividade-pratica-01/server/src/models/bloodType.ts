@@ -69,14 +69,19 @@ class BloodType {
 
   static async delete(id: number) {
     try {
-      const sql = `DELETE FROM tipos_sanguineos WHERE id = ?`;
-      const [result, _] = await db.execute(sql, [id]);
+      if (id) {
+        const sql = `DELETE FROM tipos_sanguineos WHERE id = ?`;
+        const [result, _] = await db.execute(sql, [id]);
+        return result;
+      }
+      const sql = `DELETE FROM tipos_sanguineos`;
+      const [result, _] = await db.execute(sql);
 
       return result;
     } catch (error) {
       throw error;
-    }
-  }
+    }
+  }
 }
 
 module.exports = BloodType;

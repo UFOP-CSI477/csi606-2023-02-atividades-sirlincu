@@ -102,9 +102,13 @@ class People {
 
   static delete(id: number) {
     try {
-      const sql = `DELETE FROM pessoas WHERE id = ?`;
-
-      return db.execute(sql, [id]);
+      if(id){
+        const sql = `DELETE FROM pessoas WHERE id = ?`;
+        return db.execute(sql, [id]);
+      }
+      const sql = `DELETE FROM pessoas`;
+      return db.execute(sql);
+      
     } catch (error) {
       throw error;
     }
