@@ -71,11 +71,11 @@
 
 Serão utilizados os seguintes sites como referência: 
 
-- LinkedIn. Disponível em: <https://www.linkedin.com/>. Acesso em: 16 jan. 2024.
+- LinkedIn. Disponível em: [LinkedIn](https://www.linkedin.com/). Acesso em: 16 jan. 2024.
 
-- Vagas. Disponível em: <https://www.vagas.com.br/>. Acesso em: 17 jan. 2024.
+- Vagas. Disponível em: [Vagas](https://www.vagas.com.br/). Acesso em: 17 jan. 2024.
 
-- Gupy. Disponível em: <https://www.gupy.io/>. Acesso em: 17 jan. 2024.
+- Gupy. Disponível em: [Gupy](https://www.gupy.io/). Acesso em: 17 jan. 2024.
 
-- PRISMA. Prisma schema. Disponível em: <https://www.prisma.io/docs/orm/prisma-schema/>. Acesso em: 18 jan. 2024.
+- PRISMA. Prisma schema. Disponível em: [Prisma Schema](https://www.prisma.io/docs/orm/prisma-schema/). Acesso em: 18 jan. 2024.
 
