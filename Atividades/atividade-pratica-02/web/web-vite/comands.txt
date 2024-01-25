@@ -1,0 +1,4 @@
+cd Atividades/atividade-pratica-02/web/web-vite
+npm run dev
+
+FINAL AULA 4 CRUD ESTADOS CLIENT AXIOS 

@@ -23,3 +23,15 @@ Homestead.json
 
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore GitHub workflows
+.github/
+
+# Ignore Dev Container configuration
+.devcontainer/
+
+
+yarn.lock

@@ -1,0 +1,19 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import App from "./App";
+import ListEstados from "./components/estados/ListEstados";
+
+const AppRoutes = () => {
+
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<App />} />
+                <Route path="/estados" element={<ListEstados /> } />
+                <Route path="/cidades"  />
+            </Routes>
+        </BrowserRouter>
+    )
+    
+}
+
+export default AppRoutes;
