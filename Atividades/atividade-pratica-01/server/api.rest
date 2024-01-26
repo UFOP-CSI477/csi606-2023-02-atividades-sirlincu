@@ -1,58 +1,58 @@
 ### GET
-GET http://localhost:5555/estados
+GET http://localhost:5000/estados
 
 ### GET BY ID
-GET http://localhost:5555/estados/5
+GET http://localhost:5000/estados/5
 
 ### CREATE
-POST http://localhost:5555/estados
+POST http://localhost:5000/estados
 Content-Type: application/json
 
 {
-    "nome": "Tocantins",
-    "sigla": "TO"
+    "nome": "São Paulo",
+    "sigla": "SP"
 }
 
 ### UPDATE
-PUT http://localhost:5555/estados
+PUT http://localhost:5000/estados
 Content-Type: application/json
 
 {
-    "id": 11,
+    "id": 6,
     "nome": "Distrito Federal",
     "sigla": "DF"
 }
 
 ### DELETE
-DELETE http://localhost:5555/estados/11
+DELETE http://localhost:5000/estados/10
 
 
 ######################################
 
 ### GET
-GET http://localhost:5555/cidades/
+GET http://localhost:5000/cidades/
 
 ### GET BY ID
-GET http://localhost:5555/cidades/6
+GET http://localhost:5000/cidades/3
 
 ### CREATE
-POST http://localhost:5555/cidades/
+POST http://localhost:5000/cidades/
 Content-Type: application/json
 
 {
     "nome": "Santos",
-    "estado_id": 2
+    "estado_id": 7
 }
 
 ### UPDATE
-PUT http://localhost:5555/cidades
+PUT http://localhost:5000/cidades
 Content-Type: application/json
 
 {
     "id": 1,
-    "nome": "Jacinto",
+    "nome": "Almenara",
     "estado_id": 1
 }
 
 ### DELETE
-DELETE http://localhost:5555/cidades/5
+DELETE http://localhost:5000/cidades/4

@@ -1,23 +1,13 @@
 import { prisma } from "../../database/client.js";
 
-
 export class GetByIdEstadoController {
 
     async handle(request, response) {
 
-
-        // POST
-        // request.body
-
-        // GET
-        // /estados/?id=1: request.query
-        // /estados/1: request.params 
-        // /estados/{id}
-
         const { id } = request.params;
 
         try {
-            const estado = await prisma.estado.findUniqueOrThrow({
+            const estado = await prisma.estado.findUnique({
                 where: {
                     id: parseInt(id)
                 }
