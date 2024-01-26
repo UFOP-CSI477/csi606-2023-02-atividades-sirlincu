@@ -1,4 +1,7 @@
 cd Atividades/atividade-pratica-02/web/web-vite
 npm run dev
 
+WEB VITE
 FINAL AULA 4 CRUD ESTADOS CLIENT AXIOS 
+
+REFAZENDO NODEJS
