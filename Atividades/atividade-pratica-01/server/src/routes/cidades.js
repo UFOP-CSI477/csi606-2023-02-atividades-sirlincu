@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import { CreateCidadeController } from '../controller/cidades/CreateCidadeController.js';
-import { GetAllCidadeController } from '../controller/cidades/GetAllCidadeController.js';
-import { GetByIdCidadeController } from '../controller/cidades/GetByIdCidadeController.js';
-import { UpdateCidadeController } from '../controller/cidades/UpdateCidadeController.js';
-import { DeleteCidadeController } from '../controller/cidades/DeleteCidadeController.js';
+import { CreateCidadeController } from '../controller/cidades/CreateCidade.js';
+import { GetAllCidadeController } from '../controller/cidades/GetAllCidade.js';
+import { GetByIdCidadeController } from '../controller/cidades/GetByIdCidade.js';
+import { UpdateCidadeController } from '../controller/cidades/UpdateCidade.js';
+import { DeleteCidadeController } from '../controller/cidades/DeleteCidade.js';
 
 const cidadeRouter = Router();
 
@@ -27,4 +27,4 @@ cidadeRouter.put('/cidades', updateCidadeController.handle);
 const deleteCidadeController = new DeleteCidadeController();
 cidadeRouter.delete('/cidades', deleteCidadeController.handle);
 
-export { cidadeRouter }
+export { cidadeRouter };

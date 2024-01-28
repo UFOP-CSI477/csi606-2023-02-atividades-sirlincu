@@ -1,9 +1,9 @@
 import { Router } from 'express'
-import { GetAllEstadoController } from '../controller/estados/GetAllEstadoController.js'
-import { GetByIdEstadoController } from '../controller/estados/GetByIdEstadoController.js';
-import { CreateEstadoController } from '../controller/estados/CreateEstadoController.js';
-import { UpdateEstadoController } from '../controller/estados/UpdateEstadoController.js';
-import { DeleteEstadoController } from '../controller/estados/DeleteEstadoController.js';
+import { GetAllEstadoController } from '../controller/estados/GetAllEstado.js'
+import { GetByIdEstadoController } from '../controller/estados/GetByIdEstado.js';
+import { CreateEstadoController } from '../controller/estados/CreateEstado.js';
+import { UpdateEstadoController } from '../controller/estados/UpdateEstado.js';
+import { DeleteEstadoController } from '../controller/estados/DeleteEstado.js';
 
 const estadoRouter = Router()
 
@@ -29,4 +29,4 @@ const deleteEstadoController = new DeleteEstadoController();
 estadoRouter.delete('/estados', deleteEstadoController.handle)
 
 // Export - router
-export { estadoRouter } 
+export { estadoRouter };

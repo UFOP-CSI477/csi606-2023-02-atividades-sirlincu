@@ -1,3 +1,4 @@
+###################################### ESTADOS
 ### GET
 GET http://localhost:5000/estados
 
@@ -9,8 +10,8 @@ POST http://localhost:5000/estados
 Content-Type: application/json
 
 {
-    "nome": "São Paulo",
-    "sigla": "SP"
+    "nome": "Amazonas",
+    "sigla": "AM"
 }
 
 ### UPDATE
@@ -18,16 +19,21 @@ PUT http://localhost:5000/estados
 Content-Type: application/json
 
 {
-    "id": 6,
+    "id": 7,
     "nome": "Distrito Federal",
     "sigla": "DF"
 }
 
 ### DELETE
-DELETE http://localhost:5000/estados/10
+DELETE http://localhost:5000/estados
+Content-Type: application/json
+
+{
+    "id": 1
+}
 
 
-######################################
+###################################### CIDADES
 
 ### GET
 GET http://localhost:5000/cidades/
@@ -49,10 +55,165 @@ PUT http://localhost:5000/cidades
 Content-Type: application/json
 
 {
-    "id": 1,
-    "nome": "Almenara",
-    "estado_id": 1
+    "id": 5,
+    "nome": "Campinas",
+    "estado_id": 7
 }
 
 ### DELETE
-DELETE http://localhost:5000/cidades/4
+DELETE http://localhost:5000/cidades
+Content-Type: application/json
+
+{
+    "id": 5
+}
+
+###################################### LOCAIS DE COLETA
+### GET
+GET http://localhost:5000/locais
+
+### GET BY ID
+GET http://localhost:5000/locais/1
+
+### CREATE
+POST http://localhost:5000/locais
+Content-Type: application/json
+
+{
+    "nome": "centro de convenções",
+    "rua": "",
+    "numero": "",
+    "complemento": "",
+    "cidade_id": 2
+}
+
+### UPDATE
+PUT http://localhost:5000/locais
+Content-Type: application/json
+
+{
+    "id": 1,
+    "nome": "centro municipal",
+    "rua": "",
+    "numero": "",
+    "complemento": "",
+    "cidade_id": 2
+}
+
+### DELETE
+DELETE http://localhost:5000/locais
+Content-Type: application/json
+
+{
+    "id": 1
+}
+
+###################################### PESSOAS
+### GET
+GET http://localhost:5000/pessoas
+
+### GET BY ID
+GET http://localhost:5000/pessoas/1
+
+### CREATE
+POST http://localhost:5000/pessoas
+Content-Type: application/json
+
+{
+    "nome": "Raul",
+    "rua": "",
+    "numero": "",
+    "complemento": "",
+    "rg": "",
+    "cidade_id": 3,
+    "tipo_sanguineo_id": 7
+}
+
+### UPDATE
+PUT http://localhost:5000/pessoas
+Content-Type: application/json
+
+{
+    "id": 1,
+    "nome": "centro municipal",
+    "rua": "",
+    "numero": "",
+    "complemento": "",
+    "cidade_id": 2
+}
+
+### DELETE
+DELETE http://localhost:5000/pessoas
+Content-Type: application/json
+
+{
+    "id": 1
+}
+
+###################################### DOACOES
+### GET
+GET http://localhost:5000/doacoes
+
+### GET BY ID
+GET http://localhost:5000/doacoes/1
+
+### CREATE
+POST http://localhost:5000/doacoes
+Content-Type: application/json
+
+{
+    "data": "2023-12-14T12:34:56.789Z",
+    "pessoa_id": 2,
+    "local_coleta_id": 1
+}
+
+### UPDATE
+PUT http://localhost:5000/doacoes
+Content-Type: application/json
+
+{
+    "data": "centro de convenções",
+    "pessoa_id": 1,
+    "local_coleta_id": 1
+}
+
+### DELETE
+DELETE http://localhost:5000/doacoes
+Content-Type: application/json
+
+{
+    "id": 1
+}
+
+###################################### TIPOS SANGUINEOS
+### GET
+GET http://localhost:5000/tipos-sanguineos
+
+### GET BY ID
+GET http://localhost:5000/tipos-sanguineos/1
+
+### CREATE
+POST http://localhost:5000/tipos-sanguineos
+Content-Type: application/json
+
+{
+    "tipo": "O",
+    "fator": "Negativo"
+}
+
+### UPDATE
+PUT http://localhost:5000/tipos-sanguineos
+Content-Type: application/json
+
+{
+    "tipo": "O",
+    "fator": "Negativo"
+}
+
+### DELETE
+DELETE http://localhost:5000/tipos-sanguineos
+Content-Type: application/json
+
+{
+    "id": 8
+}
