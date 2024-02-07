@@ -38,7 +38,7 @@ const ListEstados = () => {
                 {
                     estados.map(estado => (
                         // <li key={estado.id}>{estado.nome}</li>
-                        <li>{estado.id} - {estado.nome} - {estado.sigla}</li>
+                        <li>{estado.id} - {estado.nome} - {estado.sigla} <Link to={`/estados/update/${estado.id}`} >Atualizar</Link></li>
                     ))
                 }
 
