@@ -8,7 +8,7 @@ const Menu = () => {
             <ul>
                 <li><Link to="/">Página Inicial</Link></li>
                 <li><Link to="/estados">Estados</Link></li>
-                <li>Cidades</li>
+                <li><Link to="/cidades">Cidades</Link></li>
                 <li>Pessoas</li>
                 <li>Locais de Coleta</li>
                 <li>Doações</li>
