@@ -15,7 +15,6 @@ const CreateCidade = () => {
             .then(response => {
                 setEstados(response.data);
             })
-        
     }, []);
 
     const navigate = useNavigate();
@@ -64,7 +63,8 @@ const CreateCidade = () => {
 
                 <div>
                     <label htmlFor="estadoId">Estado: </label>
-                    <select name="estadoId" id="estadoId" onChange={ e=> setEstadoId( parseInt(e.target.value)) } >
+                    <select name="estadoId" id="estadoId" value={estadoId}
+                        onChange={ e=> setEstadoId( parseInt(e.target.value)) } >
                         <option value="0" selected>Selecione: </option>
 
                         {
@@ -78,7 +78,7 @@ const CreateCidade = () => {
 
                 <button type="submit">Salvar</button>
                 <button type="reset">Cancelar</button>
-                <button onClick={() => navigate('/estados')}>Voltar</button>
+                <button onClick={() => navigate('/cidades')}>Voltar</button>
             </form>
         </div>
     );
