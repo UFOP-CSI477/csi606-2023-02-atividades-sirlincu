@@ -65,8 +65,6 @@ const ListDoacoes = () => {
                         <th>Data</th>
                         <th>Pessoa</th>
                         <th>Local de Coleta</th>
-                        <th>Criado</th>
-                        <th>Alterado</th>
                         <th>Atualizar</th>
                         <th>Excluir</th>
                     </tr>
@@ -78,8 +76,6 @@ const ListDoacoes = () => {
                                 <td>{doacao.data}</td>
                                 <td>{doacao.pessoa.nome}</td>
                                 <td>{doacao.local_coleta.nome}</td>
-                                <td>{doacao.created_at}</td>
-                                <td>{doacao.updated_at}</td>
                                 <td><Link to={`/doacoes/update/${doacao.id}`} >Atualizar</Link></td>
                                 <td><button onClick={() => handleDeleteDoacao(doacao.id)}>Excluir</button></td>
                             </tr>

@@ -11,10 +11,12 @@ import CreateDoacao from "./components/doacoes/CreateDoacao";
 import UpdateDoacao from "./components/doacoes/UpdateDoacao";
 import ListLocais from "./components/locais/ListLocais";
 import CreateLocal from "./components/locais/CreateLocal";
+import UpdateLocal from "./components/locais/UpdateLocal";
 import ListPessoas from "./components/pessoas/ListPessoas";
 import CreatePessoa from "./components/pessoas/CreatePessoa";
+import UpdatePessoa from "./components/pessoas/UpdatePessoa";
 import ListTiposSanguineos from "./components/tipos-sanguineos/ListTiposSanguineos";
-import UpdateLocal from "./components/locais/UpdateLocal";
+
 
 
 const AppRoutes = () => {
@@ -44,7 +46,7 @@ const AppRoutes = () => {
 
                 /* <Route path="/pessoas" element={<ListPessoas />} />
                 <Route path="/pessoas/create" element={<CreatePessoa />} />
-                {/* <Route path="/pessoas/update/:id" element={<UpdatePessoa />} /> */}
+                <Route path="/pessoas/update/:id" element={<UpdatePessoa />} />
 
                 <Route path="/tipos-sanguineos" element={<ListTiposSanguineos />} />
                 

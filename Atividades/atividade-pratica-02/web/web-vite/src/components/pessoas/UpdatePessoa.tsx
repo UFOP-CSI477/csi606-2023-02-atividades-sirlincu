@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { CidadeInterface } from "../cidades/ListCidades";
 import { TipoSanguineoInterface } from "../tipos-sanguineos/ListTiposSanguineos";
 
-const CreatePessoa = () => {
+const UpdatePessoa = () => {
 
     const [ nome, setNome ] = useState('');
     const [ rua, setRua ] = useState('');
@@ -15,6 +15,8 @@ const CreatePessoa = () => {
     const [ tipoSanguineoId, setTipoSanguineoId ] = useState(0);
     const [ cidades, setCidades ] = useState<CidadeInterface[]>([]);
     const [ tiposSanguineos, setTiposSanguineos ] = useState<TipoSanguineoInterface[]>([]);
+
+    const { id } = useParams();
 
     useEffect(() => {
         api.get('/cidades')
@@ -30,9 +32,22 @@ const CreatePessoa = () => {
             })
     }, []);
 
+    useEffect(() => {
+        api.get(`/pessoas/${id}`)
+            .then(response => {
+                setNome(response.data.nome);
+                setRua(response.data.rua);
+                setNumero(response.data.numero);
+                setComplemento(response.data.complemento);
+                setRg(response.data.rg);
+                setCidadeId(response.data.cidade_id);
+                setTipoSanguineoId(response.data.tipo_sanguineo_id);
+            });
+    }, [id]);
+
     const navigate = useNavigate();
 
-    const handleNewPessoa = async (event : React.FormEvent<HTMLFormElement> ) => {
+    const handleUpdatePessoa = async (event : React.FormEvent<HTMLFormElement> ) => {
         
         event.preventDefault();
 
@@ -52,26 +67,26 @@ const CreatePessoa = () => {
         };
 
         try {
-            await api.post('/pessoas', data)
+            await api.put('/pessoas', data)
                 .then(response => {
                     console.log(response.data);
             });
                         
-            alert('Pessoa cadastrada com sucesso!');
+            alert('Pessoa atualizada com sucesso!');
             navigate('/pessoas');
 
         } catch (error) {
             console.log(error);
-            alert('Erro ao cadastrar pessoa!');
+            alert('Erro ao atualizar pessoa!');
         }
     }
 
     return (
         <div>
 
-            <h3>Cadastro da Pessoa: {nome}</h3>
+            <h3>Atualização da Pessoa: {nome}</h3>
 
-            <form onSubmit={handleNewPessoa} >
+            <form onSubmit={handleUpdatePessoa} >
                 <div>
                     <div>
                         <label htmlFor="nome">Nome: </label>
@@ -143,4 +158,4 @@ const CreatePessoa = () => {
     );
 }
 
-export default CreatePessoa;
+export default UpdatePessoa;
