@@ -62,7 +62,6 @@ const ListDoacoes = () => {
             <table>
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>Data</th>
                         <th>Pessoa</th>
                         <th>Local de Coleta</th>
@@ -76,7 +75,6 @@ const ListDoacoes = () => {
                     {
                         doacoes.map(doacao => (
                             <tr key={doacao.id}>
-                                <td>{doacao.id}</td>
                                 <td>{doacao.data}</td>
                                 <td>{doacao.pessoa.nome}</td>
                                 <td>{doacao.local_coleta.nome}</td>

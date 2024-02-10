@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import api from "../../services/api";
 import { Link } from "react-router-dom";
 
-export interface CidadeInterfade {
+export interface CidadeInterface {
     id: number;
     nome: string;
     estado: {
@@ -14,7 +14,7 @@ export interface CidadeInterfade {
 
 const ListCidades = () => {
 
-    const [ cidades, setCidades ] = useState<CidadeInterfade[]>([]);
+    const [ cidades, setCidades ] = useState<CidadeInterface[]>([]);
 
     useEffect(() => {
         api.get('/cidades')

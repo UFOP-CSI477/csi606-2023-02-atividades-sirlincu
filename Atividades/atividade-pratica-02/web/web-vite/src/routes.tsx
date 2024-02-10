@@ -3,13 +3,18 @@ import App from "./App";
 import ListEstados from "./components/estados/ListEstados";
 import CreateEstado from "./components/estados/CreateEstado";
 import UpdateEstado from "./components/estados/UpdateEstado";
-import CreateCidade from "./components/cidades/CreateCidade";
 import ListCidades from "./components/cidades/ListCidades";
+import CreateCidade from "./components/cidades/CreateCidade";
 import UpdateCidade from "./components/cidades/UpdateCidade";
 import ListDoacoes from "./components/doacoes/ListDoacoes";
 import CreateDoacao from "./components/doacoes/CreateDoacao";
 import UpdateDoacao from "./components/doacoes/UpdateDoacao";
-import ListLocais from "./components/locais/ListLocal";
+import ListLocais from "./components/locais/ListLocais";
+import CreateLocal from "./components/locais/CreateLocal";
+import ListPessoas from "./components/pessoas/ListPessoas";
+import CreatePessoa from "./components/pessoas/CreatePessoa";
+import ListTiposSanguineos from "./components/tipos-sanguineos/ListTiposSanguineos";
+import UpdateLocal from "./components/locais/UpdateLocal";
 
 
 const AppRoutes = () => {
@@ -34,17 +39,15 @@ const AppRoutes = () => {
                 <Route path="/doacoes/update/:id" element={<UpdateDoacao />} />
 
                 <Route path="/locais" element={<ListLocais />} />
-                {/* <Route path="/locais/create" element={<CreateLocal />} /> */}
-                {/* <Route path="/locais/create/:id" element={<UpdateLocal />} /> */}
+                <Route path="/locais/create" element={<CreateLocal />} />
+                <Route path="/locais/update/:id" element={<UpdateLocal />} />
 
-                {/* <Route path="/pessoas" element={<ListPessoas />} />
+                /* <Route path="/pessoas" element={<ListPessoas />} />
                 <Route path="/pessoas/create" element={<CreatePessoa />} />
-                <Route path="/pessoas/update/:id" element={<UpdatePessoa />} />
-                               */}
-                {/* // <Route path="/tipos-sanguineos" element={<ListTiposSanguineos />} />
-                // <Route path="/tipos-sanguineos/create" element={<CreateTipoSanguineo />} />
-                // <Route path="/tipos-sanguineos/update/:id" element={<UpdateTipoSanguineo />} /> */}
+                {/* <Route path="/pessoas/update/:id" element={<UpdatePessoa />} /> */}
 
+                <Route path="/tipos-sanguineos" element={<ListTiposSanguineos />} />
+                
                 <Route path="*" element={<h1>Page not found</h1>} />
 
             </Routes>

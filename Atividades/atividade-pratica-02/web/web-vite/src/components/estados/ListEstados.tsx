@@ -10,7 +10,6 @@ export interface EstadoInterface {
     updated_at: string;
 }
 
-
 const ListEstados = () => {
 
     const [ estados, setEstados ] = useState<EstadoInterface[]>([]);

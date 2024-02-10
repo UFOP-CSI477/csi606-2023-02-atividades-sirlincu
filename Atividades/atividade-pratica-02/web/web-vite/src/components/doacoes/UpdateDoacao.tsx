@@ -1,16 +1,39 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
 import { useNavigate, useParams } from "react-router-dom";
+import { PessoaInterface } from "../pessoas/ListPessoas";
+import { LocalInterface } from "../locais/ListLocais";
 
 
-const CreateDoacao = () => {
+const UpdateDoacao = () => {
     const [ data, setData ] = useState('');
     const [ pessoaId, setPessoaId ] = useState(0);
-    const [ localColetaId, setLocalColetaId ] = useState(0);
+    const [ localId, setLocalColetaId ] = useState(0);
     const [ pessoas, setPessoas ] = useState<PessoaInterface[]>([]);
-    const [ locaisColeta, setLocaisColeta ] = useState<LocalColetaInterface[]>([]);
+    const [ locais, setLocais ] = useState<LocalInterface[]>([]);
+    const [ nomePessoa, setNomePessoa ] = useState('');
+    const [ localNome, setLocalNome ] = useState('');
 
     const { id } = useParams();
+
+    useEffect(() => {
+        api.get(`/doacoes/${id}`)
+            .then(response => {
+                setData(response.data.data);
+                setPessoaId(response.data.pessoa_id);
+                setLocalColetaId(response.data.local_coleta_id);
+
+            const pessoaEncontrada = pessoas.find(pessoa => pessoa.id === pessoaId);
+            const localEncontrado = locais.find(local => local.id === localId);
+            if(pessoaEncontrada) {
+                setNomePessoa(pessoaEncontrada.nome);
+            }
+            if(localEncontrado) {
+                setLocalNome(localEncontrado.nome);
+            }
+
+        });
+    }, [id, pessoas, locais]);
 
     useEffect(() => {
         api.get('/pessoas')
@@ -20,9 +43,9 @@ const CreateDoacao = () => {
     }, []);
 
     useEffect(() => {
-        api.get('/locais-coleta')
+        api.get('/locais')
             .then(response => {
-                setLocaisColeta(response.data);
+                setLocais(response.data);
             })
     }, []);
 
@@ -32,15 +55,16 @@ const CreateDoacao = () => {
         
         event.preventDefault();
 
-        if (data === '' || pessoaId === 0 || localColetaId === 0) {
+        if (data === '' || pessoaId === 0 || localId === 0) {
             alert('Preencha todos os campos!');
             return;
         };
 
         const doacaoData = {
+            id,
             data,
             pessoa_id: pessoaId,
-            local_coleta_id: localColetaId
+            local_coleta_id: localId
         };
 
         try {
@@ -52,24 +76,21 @@ const CreateDoacao = () => {
             alert('Doação atualizada com sucesso!');
             navigate('/doacoes');
         } catch (error) {
-            console.log(error);
-            alert('Erro ao atualizar a doação!');
+                console.error(error);
+                if ((error as any).code === "P2025") {
+                        // Faça algo específico para o código de erro P2025
+                    }
+                alert('Erro ao atualizar a doação!');
+
         }
     }
 
     return (
         <div>
 
-            <h3>Atualização da Doação: {pessoaId} - {localColetaId}</h3>
+            <h3>Atualização da Doação: {nomePessoa} - {localNome}</h3>
 
             <form onSubmit={handleUpdateDoacao} >
-                <div>
-                    <label htmlFor="data">Data: </label>
-                    <input type="date" id="data" 
-                        name="data" value={data} 
-                        onChange={e => setData(e.target.value) } />
-                </div>
-
                 <div>
                     <label htmlFor="pessoaId">Pessoa: </label>
                     <select name="pessoaId" id="pessoaId" value={pessoaId}
@@ -85,13 +106,13 @@ const CreateDoacao = () => {
                 </div>
 
                 <div>
-                    <label htmlFor="localColetaId">Local de Coleta: </label>
-                    <select name="localColetaId" id="localColetaId" value={localColetaId}
+                    <label htmlFor="localId">Local de Coleta: </label>
+                    <select name="localId" id="localId" value={localId}
                         onChange={ e=> setLocalColetaId(parseInt(e.target.value))} >
                         <option value="0">Selecione: </option>
                         {
-                            locaisColeta.map(localColeta => (
-                                <option key={localColeta.id} value={localColeta.id}>{localColeta.nome}</option>
+                            locais.map(local => (
+                                <option key={local.id} value={local.id}>{local.nome}</option>
                             ))
                         }
                     </select>
@@ -105,4 +126,4 @@ const CreateDoacao = () => {
     )
 }
 
-export default CreateDoacao;
+export default UpdateDoacao;

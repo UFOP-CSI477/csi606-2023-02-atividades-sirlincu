@@ -5,7 +5,9 @@ import { Link } from "react-router-dom";
 export interface LocalInterface {
     id: number;
     nome: string;
-    endereco: string;
+    rua: string;
+    numero: string;
+    complemento: string;
     cidade: {
         id: number;
         nome: string;
@@ -18,6 +20,7 @@ const ListLocais = () => {
     useEffect(() => {
         api.get('/locais')
             .then(response => {
+                console.log(response.data);
                 setLocais(response.data);
             })
     }, []);
@@ -58,7 +61,9 @@ const ListLocais = () => {
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th>Endereço</th>
+                        <th>Rua</th>
+                        <th>Numero</th>
+                        <th>Complemento</th>
                         <th>Cidade</th>
                         <th>Ações</th>
                     </tr>
@@ -67,7 +72,9 @@ const ListLocais = () => {
                     {locais.map(local => (
                         <tr key={local.id}>
                             <td>{local.nome}</td>
-                            <td>{local.endereco}</td>
+                            <td>{local.rua}</td>
+                            <td>{local.numero}</td>
+                            <td>{local.complemento}</td>
                             <td>{local.cidade.nome}</td>
                             <td>
                                 <Link to={`/locais/update/${local.id}`}>Editar</Link>
