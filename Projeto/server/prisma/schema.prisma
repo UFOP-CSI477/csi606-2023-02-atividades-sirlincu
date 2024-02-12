@@ -31,6 +31,7 @@ model Empresa {
   senha     String
   cnpj      String
   telefone  String
+  setor     String
   endereco  String
   vagas     Vaga[]
   createdAt DateTime @default(now())
@@ -42,6 +43,7 @@ model Vaga {
   titulo    String
   descricao String
   bolsa     Float
+  requisitos String
   empresaId Int
   empresa   Empresa  @relation(fields: [empresaId], references: [id])
   candidaturas Candidatura[]
@@ -53,9 +55,18 @@ model Candidatura {
   id       Int      @id @default(autoincrement())
   alunoId  Int
   vagaId   Int
+  statusId   Int
   aluno    Aluno    @relation(fields: [alunoId], references: [id])
   vaga     Vaga     @relation(fields: [vagaId], references: [id])
+  status   StatusCandidatura @relation(fields: [statusId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
+model StatusCandidatura {
+  id       Int      @id @default(autoincrement())
+  status   String
+  candidaturas Candidatura[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

@@ -20,6 +20,7 @@ CREATE TABLE "Empresa" (
     "senha" TEXT NOT NULL,
     "cnpj" TEXT NOT NULL,
     "telefone" TEXT NOT NULL,
+    "setor" TEXT NOT NULL,
     "endereco" TEXT NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL
@@ -30,7 +31,8 @@ CREATE TABLE "Vaga" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "titulo" TEXT NOT NULL,
     "descricao" TEXT NOT NULL,
-    "salario" REAL NOT NULL,
+    "bolsa" REAL NOT NULL,
+    "requisitos" TEXT NOT NULL,
     "empresaId" INTEGER NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL,
@@ -42,8 +44,18 @@ CREATE TABLE "Candidatura" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "alunoId" INTEGER NOT NULL,
     "vagaId" INTEGER NOT NULL,
+    "statusId" INTEGER NOT NULL,
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" DATETIME NOT NULL,
     CONSTRAINT "Candidatura_alunoId_fkey" FOREIGN KEY ("alunoId") REFERENCES "Aluno" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT "Candidatura_vagaId_fkey" FOREIGN KEY ("vagaId") REFERENCES "Vaga" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT "Candidatura_vagaId_fkey" FOREIGN KEY ("vagaId") REFERENCES "Vaga" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
+    CONSTRAINT "Candidatura_statusId_fkey" FOREIGN KEY ("statusId") REFERENCES "StatusCandidatura" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "StatusCandidatura" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "status" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL
 );
