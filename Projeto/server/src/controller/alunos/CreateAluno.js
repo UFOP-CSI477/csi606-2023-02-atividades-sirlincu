@@ -3,9 +3,9 @@ import { prisma } from '../../database/client.js';
 export class CreateAlunoController {
     async handle(request, response) {
         try {       
-            const { nome, email, cpf, data_nascimento, senha, cidade_id } = request.body;
+            const { nome, email, senha, cpf, telefone, curso, periodo } = request.body;
         
-            if (!nome || !email || !cpf || !data_nascimento || !senha || !cidade_id) {
+            if (!nome || !email || !senha || !cpf || !telefone || !curso || !periodo ) {
                 return response.status(400).json({ error: 'Preencha todos os campos!' });
             }
             
@@ -13,8 +13,8 @@ export class CreateAlunoController {
                 data: {
                     nome,
                     email,
-                    cpf,
                     senha,
+                    cpf,
                     telefone,
                     curso,
                     periodo

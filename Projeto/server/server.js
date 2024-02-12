@@ -1,9 +1,9 @@
 import express from 'express';
 // import cors from 'cors';
 import { alunoRouter } from './src/routes/alunos.js';
-// import { candidaturaRouter } from './src/routes/candidaturas.js';
+import { candidaturaRouter } from './src/routes/candidaturas.js';
 import { empresaRouter } from './src/routes/empresas.js';
-// import { statusCandidaturaRouter } from './src/routes/statusCandidatura.js';
+import { statusCandidaturaRouter } from './src/routes/statusCandidatura.js';
 import { vagaRouter } from './src/routes/vagas.js';
 
 const server = express();
@@ -18,9 +18,9 @@ server.use(express.json());
 // server.use(cors());
 
 server.use(alunoRouter);
-// server.use(candidaturaRouter);
+server.use(candidaturaRouter);
 server.use(empresaRouter);
-// server.use(statusCandidaturaRouter);
+server.use(statusCandidaturaRouter);
 server.use(vagaRouter);
 
 server.listen(port, () => {

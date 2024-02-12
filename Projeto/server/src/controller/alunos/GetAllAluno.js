@@ -8,8 +8,8 @@ export class GetAllAlunoController {
                     id: true,
                     nome: true,
                     email: true,
-                    cpf: true,
                     senha: true,
+                    cpf: true,
                     telefone: true,
                     curso: true,
                     periodo: true

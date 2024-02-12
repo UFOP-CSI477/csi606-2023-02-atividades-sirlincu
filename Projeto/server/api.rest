@@ -1,0 +1,196 @@
+###################################### ALUNOS
+### GET
+GET http://localhost:5000/alunos
+
+### GET BY ID
+GET http://localhost:5000/alunos/1
+
+### CREATE
+POST http://localhost:5000/alunos
+Content-Type: application/json
+
+{
+    "nome": "Gustavo Martins",
+    "email": "gustavo.martins@example.com",
+    "senha": "gustavo123",
+    "cpf": "321.987.654-00",
+    "telefone": "(321) 987-6540",
+    "curso": "Redes de Computadores",
+    "periodo": 4
+}
+
+### UPDATE
+PUT http://localhost:5000/alunos
+Content-Type: application/json
+
+{
+    "id": 1,
+    "nome": "Updated John Doe",
+    "email": "updated.john@example.com",
+    "senha": "newpassword",
+    "cpf": "987.654.321-00",
+    "telefone": "(987) 654-3210",
+    "curso": "Information Technology",
+    "periodo": 5
+}
+
+### DELETE
+DELETE http://localhost:5000/alunos
+Content-Type: application/json
+
+{
+    "id": 1
+}
+
+###################################### EMPRESAS
+### GET
+GET http://localhost:5000/empresas
+
+### GET BY ID
+GET http://localhost:5000/empresas/1
+
+### CREATE
+POST http://localhost:5000/empresas
+Content-Type: application/json
+
+{
+    "nome": "Empresa J",
+    "email": "contato@empresaJ.com",
+    "senha": "senhaEmpresaJ123",
+    "cnpj": "11122233344499",
+    "telefone": "(00) 1111-2222",
+    "setor": "Telecomunicações",
+    "endereco": "Rua dos Comerciantes, 707"
+}
+
+### UPDATE
+PUT http://localhost:5000/empresas
+Content-Type: application/json
+
+{
+    "id": 1,
+    "nome": "Updated ABC Company",
+    "email": "updated.contact@abc.com",
+    "senha": "newCompanyPass",
+    "cnpj": "43210987654321",
+    "telefone": "(654) 321-0987",
+    "setor": "IT Services",
+    "endereco": "456 Tech Blvd"
+}
+
+### DELETE
+DELETE http://localhost:5000/empresas
+Content-Type: application/json
+
+{
+    "id": 1
+}
+
+###################################### VAGAS
+### GET
+GET http://localhost:5000/vagas
+
+### GET BY ID
+GET http://localhost:5000/vagas/1
+
+### CREATE
+POST http://localhost:5000/vagas
+Content-Type: application/json
+
+{
+    "titulo": "Estagiário em Telecomunicações",
+    "descricao": "Estágio para estudantes de telecomunicações",
+    "bolsa": 1300.00,
+    "requisitos": "Interesse em telecomunicações, conhecimento técnico",
+    "empresaId": 11
+  }
+
+### UPDATE
+PUT http://localhost:5000/vagas
+Content-Type: application/json
+
+{
+    "id": 1,
+    "titulo": "Updated Software Developer Intern",
+    "descricao": "Revised description for internship",
+    "bolsa": 1800.00,
+    "requisitos": "Programming skills, communication, creativity",
+    "empresaId": 1
+}
+
+### DELETE
+DELETE http://localhost:5000/vagas
+Content-Type: application/json
+
+{
+    "id": 1
+}
+
+###################################### CANDIDATURAS
+### GET
+GET http://localhost:5000/candidaturas
+
+### GET BY ID
+GET http://localhost:5000/candidaturas/1
+
+### CREATE
+POST http://localhost:5000/candidaturas
+Content-Type: application/json
+
+{
+    "alunoId": 8,
+    "vagaId": 8,
+    "statusId": 1
+}
+
+### UPDATE
+PUT http://localhost:5000/candidaturas
+Content-Type: application/json
+
+{
+    "id": 6,
+    "alunoId": 7,
+    "vagaId": 2,
+    "statusId": 1
+}
+
+### DELETE
+DELETE http://localhost:5000/candidaturas
+Content-Type: application/json
+
+{
+    "id": 1
+}
+
+###################################### STATUS CANDIDATURA
+### GET
+GET http://localhost:5000/status-candidatura
+
+### GET BY ID
+GET http://localhost:5000/status-candidatura/1
+
+### CREATE
+POST http://localhost:5000/status-candidatura
+Content-Type: application/json
+
+{
+    "status": "Rejeitada"
+}
+
+### UPDATE
+PUT http://localhost:5000/status-candidatura
+Content-Type: application/json
+
+{
+    "id": 1,
+    "status": "Accepted"
+}
+
+### DELETE
+DELETE http://localhost:5000/status-candidatura
+Content-Type: application/json
+
+{
+    "id": 1
+}
+

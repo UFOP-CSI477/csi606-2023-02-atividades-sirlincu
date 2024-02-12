@@ -3,9 +3,9 @@ import { prisma } from '../../database/client.js';
 export class CreateEmpresaController {
     async handle(request, response) {
         try {
-            const { nome, email, cnpj, senha, telefone, endereco, descricao } = request.body;
+            const { nome, email, senha, cnpj, telefone, setor, endereco } = request.body;
 
-            if (!nome || !email || !cnpj || !senha || !telefone || !endereco || !descricao) {
+            if (!nome || !email || !senha || !cnpj || !telefone || !setor || !endereco) {
                 return response.status(400).json({ error: 'Preencha todos os campos!' });
             }
             
@@ -13,8 +13,8 @@ export class CreateEmpresaController {
                 data: {
                     nome,
                     email,
-                    cnpj,
                     senha,
+                    cnpj,
                     telefone,
                     setor,
                     endereco

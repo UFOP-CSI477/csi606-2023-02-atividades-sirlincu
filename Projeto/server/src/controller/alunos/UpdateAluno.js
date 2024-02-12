@@ -12,8 +12,8 @@ export class UpdateAlunoController {
                 data: {
                     nome,
                     email,
-                    cpf,
                     senha,
+                    cpf,
                     telefone,
                     curso,
                     periodo

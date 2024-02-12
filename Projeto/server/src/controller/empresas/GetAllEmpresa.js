@@ -8,10 +8,11 @@ export class GetAllEmpresaController {
                     id: true,
                     nome: true,
                     email: true,
-                    cnpj: true,
                     senha: true,
+                    cnpj: true,
                     telefone: true,
-                    setor: true
+                    setor: true,
+                    endereco: true
                 }
             });
 
