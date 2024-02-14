@@ -13,7 +13,6 @@ export class CreateEmpresaController {
                 data: {
                     nome,
                     email,
-                    senha,
                     cnpj,
                     telefone,
                     setor,

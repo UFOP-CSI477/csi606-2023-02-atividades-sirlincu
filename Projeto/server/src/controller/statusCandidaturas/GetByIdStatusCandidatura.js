@@ -5,6 +5,16 @@ export class GetByIdStatusCandidaturaController {
         try {
             const { id } = request.params;
 
+            const check = await prisma.statusCandidatura.findUnique({
+                where: {
+                    id: parseInt(id)
+                }
+            });
+
+            if(!check) {
+                return response.status(400).json({ error: 'Status da candidatura não encontrado!' });
+            }
+
             const statusCandidatura = await prisma.statusCandidatura.findUnique({
                 where: {
                     id: parseInt(id)

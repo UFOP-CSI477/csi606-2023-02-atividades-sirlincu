@@ -13,7 +13,6 @@ export class UpdateEmpresaController {
                     nome,
                     email,
                     cnpj,
-                    senha,
                     telefone,
                     setor,
                     endereco

@@ -9,6 +9,36 @@ export class CreateCandidaturaController {
                 return response.status(400).json({ error: 'Preencha todos os campos!' });
             }
 
+            const aluno = await prisma.aluno.findUnique({
+                where: {
+                    id: parseInt(alunoId)
+                }
+            });
+
+            const vaga = await prisma.vaga.findUnique({
+                where: {
+                    id: parseInt(vagaId)
+                }
+            });
+
+            const status = await prisma.status.findUnique({
+                where: {
+                    id: parseInt(statusId)
+                }
+            });
+
+            if(!aluno) {
+                return response.status(400).json({ error: 'Aluno não encontrado!' });
+            }
+
+            if(!vaga) {
+                return response.status(400).json({ error: 'Vaga não encontrada!' });
+            }
+
+            if(!status) {
+                return response.status(400).json({ error: 'Status não encontrado!' });
+            }
+
             const candidatura = await prisma.candidatura.create({
                 data: {
                     aluno: {

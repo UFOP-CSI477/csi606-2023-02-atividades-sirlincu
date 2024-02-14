@@ -5,6 +5,16 @@ export class GetByIdEmpresaController {
         try {
             const { id } = request.params;
 
+            const check = await prisma.empresa.findUnique({
+                where: {
+                    id: parseInt(id)
+                }
+            });
+
+            if(!check) {
+                return response.status(400).json({ error: 'Empresa não encontrada!' });
+            }
+
             const empresa = await prisma.empresa.findUnique({
                 where: {
                     id: parseInt(id)

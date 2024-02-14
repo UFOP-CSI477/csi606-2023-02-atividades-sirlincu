@@ -4,6 +4,17 @@ export class GetByIdVagaController {
     async handle(request, response) {
         try {
             const { id } = request.params;
+
+            const check = await prisma.vaga.findUnique({
+                where: {
+                    id: parseInt(id)
+                }
+            });
+
+            if(!check) {
+                return response.status(400).json({ error: 'Vaga não encontrada!' });
+            }
+
             const vaga = await prisma.vaga.findUnique({
                 where: {
                     id: parseInt(id)
@@ -20,7 +31,6 @@ export class GetByIdVagaController {
                             nome: true,
                             email: true,
                             cnpj: true,
-                            senha: true,
                             telefone: true,
                             setor: true,
                             endereco: true
@@ -28,6 +38,8 @@ export class GetByIdVagaController {
                     }
                 }
             });
+
+            return response.json(vaga);
         } catch (error) {
             return response.status(400).json({ error: error.message });
         }

@@ -30,7 +30,6 @@ export class GetAllCandidaturaController {
                                     id: true,
                                     nome: true,
                                     email: true,
-                                    senha: true,
                                     cnpj: true,
                                     telefone: true,
                                     setor: true,

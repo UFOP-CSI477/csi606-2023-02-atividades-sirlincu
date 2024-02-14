@@ -4,12 +4,23 @@ export class GetByIdCandidaturaController {
     async handle(request, response) {
         try {
             const { id } = request.params;
+            
+            const check = await prisma.candidatura.findUnique({
+                where: {
+                    id: parseInt(id)
+                }
+            });
 
+            if(!check) {
+                return response.status(400).json({ error: 'Candidatura não encontrada!' });
+            }
+            
             const candidatura = await prisma.candidatura.findUnique({
                 where: {
                     id: parseInt(id)
                 },
-                include: {
+                select: {
+                    id: true,
                     aluno: {
                         select: {
                             id: true,
@@ -34,7 +45,6 @@ export class GetByIdCandidaturaController {
                                     id: true,
                                     nome: true,
                                     email: true,
-                                    senha: true,
                                     cnpj: true,
                                     telefone: true,
                                     setor: true,
@@ -43,13 +53,12 @@ export class GetByIdCandidaturaController {
                             }
                         }
                     },
-                    statusCandidatura: {
+                    status: {
                         select: {
                             id: true,
                             status: true
                         }
                     }
-                
                 }
             });
 

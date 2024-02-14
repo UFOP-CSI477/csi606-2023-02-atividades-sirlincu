@@ -10,6 +10,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Funcionario {
+  id       Int      @id @default(autoincrement())
+  nome      String
+  email     String
+  senha     String
+  cpf       String
+  telefone  String
+  cargo     String
+  empresaId Int
+  empresa   Empresa  @relation(fields: [empresaId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
 model Aluno {
   id       Int      @id @default(autoincrement())
   nome      String
@@ -28,12 +42,12 @@ model Empresa {
   id       Int      @id @default(autoincrement())
   nome      String
   email     String
-  senha     String
   cnpj      String
   telefone  String
   setor     String
   endereco  String
   vagas     Vaga[]
+  funcionarios Funcionario[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

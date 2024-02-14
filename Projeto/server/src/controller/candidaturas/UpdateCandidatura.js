@@ -5,30 +5,33 @@ export class UpdateCandidaturaController {
         try {
             const { id, alunoId, vagaId, statusId } = request.body;
 
-            const alunoExistente = await prisma.aluno.findUnique({
+            const aluno = await prisma.aluno.findUnique({
                 where: {
                     id: parseInt(alunoId)
                 }
             });
-            if (!alunoExistente) {
-                return response.status(400).json({ error: 'Aluno não encontrado!' });
-            }
 
-            const vagaExistente = await prisma.vaga.findUnique({
+            const vaga = await prisma.vaga.findUnique({
                 where: {
                     id: parseInt(vagaId)
                 }
             });
-            if (!vagaExistente) {
-                return response.status(400).json({ error: 'Vaga não encontrada!' });
-            }
 
-            const statusExistente = await prisma.statusCandidatura.findUnique({
+            const status = await prisma.status.findUnique({
                 where: {
                     id: parseInt(statusId)
                 }
             });
-            if (!statusExistente) {
+
+            if(!aluno) {
+                return response.status(400).json({ error: 'Aluno não encontrado!' });
+            }
+
+            if(!vaga) {
+                return response.status(400).json({ error: 'Vaga não encontrada!' });
+            }
+
+            if(!status) {
                 return response.status(400).json({ error: 'Status não encontrado!' });
             }
 

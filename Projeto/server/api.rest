@@ -42,6 +42,51 @@ Content-Type: application/json
     "id": 1
 }
 
+###################################### FUNCIONARIOS
+### GET
+GET http://localhost:5000/funcionarios
+
+### GET BY ID
+GET http://localhost:5000/funcionarios/1
+
+### CREATE
+POST http://localhost:5000/funcionarios
+Content-Type: application/json
+
+{
+    "nome": "Nome do Funcionario",
+    "email": "funcionario@example.com",
+    "senha": "senha123",
+    "cpf": "123.456.789-00",
+    "telefone": "(123) 456-7890",
+    "cargo": "Cargo do Funcionario",
+    "empresaId": 1
+}
+
+### UPDATE
+PUT http://localhost:5000/funcionarios
+Content-Type: application/json
+
+{
+    "id": 1,
+    "nome": "Funcionario Atualizado",
+    "email": "atualizado@example.com",
+    "senha": "novasenha",
+    "cpf": "987.654.321-00",
+    "telefone": "(987) 654-3210",
+    "cargo": "Novo Cargo do Funcionario",
+    "empresaId": 2  // Certifique-se de substituir 2 pelo ID da nova empresa relacionada
+}
+
+### DELETE
+DELETE http://localhost:5000/funcionarios
+Content-Type: application/json
+
+{
+    "id": 1
+}
+
+
 ###################################### EMPRESAS
 ### GET
 GET http://localhost:5000/empresas
@@ -91,7 +136,7 @@ Content-Type: application/json
 GET http://localhost:5000/vagas
 
 ### GET BY ID
-GET http://localhost:5000/vagas/1
+GET http://localhost:5000/vagas/80
 
 ### CREATE
 POST http://localhost:5000/vagas
@@ -102,7 +147,7 @@ Content-Type: application/json
     "descricao": "Estágio para estudantes de telecomunicações",
     "bolsa": 1300.00,
     "requisitos": "Interesse em telecomunicações, conhecimento técnico",
-    "empresaId": 11
+    "empresaId": 50
   }
 
 ### UPDATE
@@ -131,16 +176,16 @@ Content-Type: application/json
 GET http://localhost:5000/candidaturas
 
 ### GET BY ID
-GET http://localhost:5000/candidaturas/1
+GET http://localhost:5000/candidaturas/70
 
 ### CREATE
 POST http://localhost:5000/candidaturas
 Content-Type: application/json
 
 {
-    "alunoId": 8,
-    "vagaId": 8,
-    "statusId": 1
+    "alunoId": 2,
+    "vagaId": 2,
+    "statusId": 3
 }
 
 ### UPDATE
