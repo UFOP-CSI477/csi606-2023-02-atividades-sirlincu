@@ -1,5 +1,5 @@
 import express from 'express';
-// import cors from 'cors';
+import cors from 'cors';
 import { alunoRouter } from './src/routes/alunos.js';
 import { candidaturaRouter } from './src/routes/candidaturas.js';
 import { empresaRouter } from './src/routes/empresas.js';
@@ -16,7 +16,7 @@ server.get('/', (req, res) => {
 });
 
 server.use(express.json());
-// server.use(cors());
+server.use(cors());
 
 server.use(alunoRouter);
 server.use(candidaturaRouter);

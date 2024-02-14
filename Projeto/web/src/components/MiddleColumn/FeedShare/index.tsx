@@ -6,9 +6,7 @@ import {
   Container,
   WriteIcon,
   CameraIcon,
-  VideoCameraIcon,
-  DocumentIcon,
-  ArticleIcon,
+  VideoCameraIcon
 } from './styles';
 
 const FeedShare: React.FC = () => {
@@ -17,7 +15,7 @@ const FeedShare: React.FC = () => {
       <Container>
         <div className="write">
           <WriteIcon />
-          <span>Começar uma publicação</span>
+          <span>Criar uma vaga</span>
         </div>
         <div className="attachment">
           <button>
@@ -28,14 +26,7 @@ const FeedShare: React.FC = () => {
             <VideoCameraIcon />
             Video
           </button>
-          <button>
-            <DocumentIcon />
-            Documento
-          </button>
-          <button>
-            <ArticleIcon />
-            Escrever artigo
-          </button>
+          
         </div>
       </Container>
     </Panel>

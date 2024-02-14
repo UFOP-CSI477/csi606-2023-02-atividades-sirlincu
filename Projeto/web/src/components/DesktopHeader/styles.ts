@@ -1,7 +1,12 @@
 import styled, { css } from 'styled-components';
-import { GrLinkedin } from 'react-icons/gr';
+// import { GrLinkedin } from 'react-icons/gr';
 import { AiFillHome, AiOutlineBell, AiFillCaretDown } from 'react-icons/ai';
 // import companyIcon from '../../../public/companhia.png'
+
+export const Title = styled.span`
+    font-size: 16px;
+    color: var(--color-black);
+`;
 
 export const Container = styled.header`
     background: var(--color-header);
@@ -53,15 +58,15 @@ export const Wrapper = styled.div`
     }
 `;
 
-export const LinkedInIcon = styled(GrLinkedin)`
-    width: 34px;
-    height: 34px;
-    color: var(--color-linkedin);
-    background: #fff;
-    border-radius: 4px;
-    flex-shrink: 0;
-    cursor: pointer;
-`;
+// export const LinkedInIcon = styled(GrLinkedin)`
+//     width: 34px;
+//     height: 34px;
+//     color: var(--color-linkedin);
+//     background: #fff;
+//     border-radius: 4px;
+//     flex-shrink: 0;
+//     cursor: pointer;
+// `;
 
 export const UfopIcon = styled.img`
     width: 34px;
@@ -108,10 +113,10 @@ export const CompanyIcon = styled.img`
     margin-left: 8px;
     color: var(--color-icons);
     cursor: pointer;
+    border: 1px solid var(--color-icons);
     &:hover {
         background: var(--color-icons);
-    }
-    
+    }    
 `;
 
 export const ProfileCircle = styled.img`
