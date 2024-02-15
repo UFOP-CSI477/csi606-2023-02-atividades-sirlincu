@@ -28,5 +28,7 @@ export default createGlobalStyle`
     --color-gray: rgba(0,0,0,.6);
     --color-separator: rgba(0,0,0,0.15);
     --color-white: #fff;
+    --color-gray-light: #e2e2e2;
+    --color-gray-lighter: #f5f5f5;
   }
 `;

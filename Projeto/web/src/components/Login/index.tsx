@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { FormContainer, Form, FormTitle, FormField, Label, Input, SubmitButton } from './styles';
 import { Link } from 'react-router-dom';
+import GlobalStyles from '../../styles/GlobalStyles';
 
 const Login: React.FC = () => {
     const [ email, setEmail ] = useState('');
@@ -79,12 +80,15 @@ const Login: React.FC = () => {
                 </FormField>
                 
                 <SubmitButton type="submit" value="Submit">Login</SubmitButton>
-                <Label><Link to="/register">Cadastre-se</Link></Label>
+                <Link to="/register">
+                    <Label>Cadastre-se</Label>
+                </Link>
             </Form>
 
             {errorMessage && <p style={{color: 'red' }}>{errorMessage}</p>}
             {successMessage && <p style={{color: 'green' }}>{successMessage}</p>}
         </FormContainer>
+        <GlobalStyles />
     </>
   );
 }

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 
 import { Container, Wrapper, UfopIcon, SearchInput, HomeIcon, ProfileCircle, CaretDownIcon, CompanyIcon } from './styles';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import GlobalStyles from '../../styles/GlobalStyles';
 
 const DesktopHeader: React.FC = () => {
     const location = useLocation();
@@ -71,15 +72,19 @@ const DesktopHeader: React.FC = () => {
                 </div>
                 <div className="right">
                     <nav>
-                        <button className="">
-                            <HomeIcon src="/home.png" />
-                            <span><Link to="/">Início</Link></span>
-                        </button>
-                        <button className="active">
-                            <CompanyIcon src="/company.png" alt="Empresas" />
-                            <span><Link to="/companies">Empresas</Link></span>
-                            
-                        </button>
+                        <Link to="/">
+                            <button className="">
+                                    <HomeIcon src="/home.png" />
+                                    <span>Início</span>
+                            </button>
+                        </Link>
+                        <Link to="/companies">
+                            <button className="">
+                                <CompanyIcon src="/company.png" alt="Empresas" />
+                                <span>Empresas</span>
+                            </button>
+                        </Link>
+                        
                         <button onClick={handleToggleMenu}>
                             <ProfileCircle src="/user.png" />
                             <span>Eu <CaretDownIcon /></span>
@@ -106,7 +111,7 @@ const DesktopHeader: React.FC = () => {
                     </nav>
                 </div>
             </Wrapper>
-
+            <GlobalStyles />
         </Container>
     );
 };

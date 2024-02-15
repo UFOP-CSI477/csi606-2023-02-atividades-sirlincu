@@ -9,7 +9,9 @@ const LoginPage: React.FC = () => {
         <Container>
             <MobileHeader />
             <DesktopHeader />
-            <Login />
+            <main>
+                <Login />
+            </main>
             <GlobalStyles />
         </Container>
     );

@@ -11,6 +11,7 @@ export const FormContainer = styled.div`
     margin-right: 20%;
     border: 1px solid var(--color-separator);
     border-radius: 8px;
+    background: var(--color-gray-lighter);
 `;
 
 export const Form = styled.form`
@@ -45,6 +46,7 @@ export const Input = styled.input`
     border-radius: 4px;
     border: 1px solid var(--color-separator);
     padding: 0 8px;
+    background: var(--color-white);
 `;
 
 export const SubmitButton = styled.button`
