@@ -7,6 +7,7 @@ import LeftColumn from '../../components/LeftColumn';
 import MiddleColumn from '../../components/MiddleColumn';
 import RightColumn from '../../components/RightColumn';
 import { Container } from './styles';
+import GlobalStyles from '../../styles/GlobalStyles';
 
 const Home: React.FC = () => {
     return (
@@ -22,6 +23,7 @@ const Home: React.FC = () => {
                 <MiddleColumn />
                 <RightColumn />
             </main>
+            <GlobalStyles />
         </Container>
     );
 }

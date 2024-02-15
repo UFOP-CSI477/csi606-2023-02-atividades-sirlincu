@@ -5,14 +5,22 @@ GET http://localhost:5000/alunos
 ### GET BY ID
 GET http://localhost:5000/alunos/1
 
+### AUTHENTICATE
+POST http://localhost:5000/alunos/authenticate
+Content-Type: application/json
+
+{
+    "email": "maria.oliveira@example.com",
+    "senha": "maria123"
+}
 ### CREATE
 POST http://localhost:5000/alunos
 Content-Type: application/json
 
 {
-    "nome": "Gustavo Martins",
-    "email": "gustavo.martins@example.com",
-    "senha": "gustavo123",
+    "nome": "linco",
+    "email": "linco",
+    "senha": "123",
     "cpf": "321.987.654-00",
     "telefone": "(321) 987-6540",
     "curso": "Redes de Computadores",
@@ -49,6 +57,15 @@ GET http://localhost:5000/funcionarios
 ### GET BY ID
 GET http://localhost:5000/funcionarios/1
 
+### AUTHENTICATE
+POST http://localhost:5000/funcionarios/authenticate
+Content-Type: application/json
+
+{
+    "email": "funcionario@example.com",
+    "senha": "senha123"
+}
+
 ### CREATE
 POST http://localhost:5000/funcionarios
 Content-Type: application/json
@@ -75,7 +92,7 @@ Content-Type: application/json
     "cpf": "987.654.321-00",
     "telefone": "(987) 654-3210",
     "cargo": "Novo Cargo do Funcionario",
-    "empresaId": 2  // Certifique-se de substituir 2 pelo ID da nova empresa relacionada
+    "empresaId": 2  
 }
 
 ### DELETE

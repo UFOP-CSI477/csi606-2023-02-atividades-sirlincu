@@ -1,58 +1,45 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Panel from '../../Panel';
 
 import { Container } from './styles';
 
+export interface VagaInterface {
+  id: number;
+  titulo: string;
+  bolsa: number;
+  empresa: {
+    id: number;
+    nome: string;
+    setor: string;
+  }
+}
+
 const TrendingPanel: React.FC = () => {
+  const [ vagas, setVagas ] = React.useState<VagaInterface[]>([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/vagas')
+      .then(response => response.json())
+      .then(data => setVagas(data.slice(-5)));
+  }, []);
+
   return (
     <Container>
       <Panel>
-        <span className="title">Assuntos mais discutidos</span>
+        <span className="title">Vagas</span>
 
         <ul>
-          <li>
-            <span className="bullet" />
-            <span className="news">
-              <span className="head">Bootcamp da Rocketseat</span>
-              <span className="subtext">há 1 d • 316 leitores</span>
-            </span>
-          </li>
-          <li>
-            <span className="bullet" />
-            <span className="news">
-              <span className="head">Bootcamp da Rocketseat</span>
-              <span className="subtext">há 1 d • 316 leitores</span>
-            </span>
-          </li>
-          <li>
-            <span className="bullet" />
-            <span className="news">
-              <span className="head">Bootcamp da Rocketseat</span>
-              <span className="subtext">há 1 d • 316 leitores</span>
-            </span>
-          </li>
-          <li>
-            <span className="bullet" />
-            <span className="news">
-              <span className="head">Bootcamp da Rocketseat</span>
-              <span className="subtext">há 1 d • 316 leitores</span>
-            </span>
-          </li>
-          <li>
-            <span className="bullet" />
-            <span className="news">
-              <span className="head">Bootcamp da Rocketseat</span>
-              <span className="subtext">há 1 d • 316 leitores</span>
-            </span>
-          </li>
-          <li>
-            <span className="bullet" />
-            <span className="news">
-              <span className="head">Bootcamp da Rocketseat</span>
-              <span className="subtext">há 1 d • 316 leitores</span>
-            </span>
-          </li>
+          {vagas.map(vaga => (
+            <li key={vaga.id}>
+              <span className="bullet" />
+              <span className="news">
+                <span className="head">{vaga.titulo}</span>
+                <span className="subtext">{vaga.empresa.nome} • {vaga.empresa.setor} • R$ {vaga.bolsa}</span>
+              </span>
+
+            </li>
+          ))}
         </ul>
       </Panel>
     </Container>

@@ -1,61 +1,37 @@
 import styled from 'styled-components';
 
-export const LinkTo = styled.link`
-    color: var(--color-link);
-    text-decoration: none;
-    font-weight: bold;
-    cursor: pointer;
-`;
-
-export const FormContainer = styled.div`
-    margin-top: 60px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-`;
-
-export const Form = styled.form`
-    display: flex;
-    flex-direction: column;
+export const Container = styled.div`
     width: 100%;
-    max-width: 400px;
-`;
+    height: 100%;
 
-export const FormTitle = styled.h2`
-    font-size: 24px;
-    color: var(--color-black);
-    margin-bottom: 16px;
-    text-align: center;
-`;
+    > span {
+        margin-top: 48px;
+        display: flex;
+    }
 
-export const FormField = styled.div`
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 16px;
-`;
+    @media (min-width: 1180px) {
+        > main {
+            margin: 0 30px;
+            display: flex;
+            justify-content: center;
+        }
+        > span {
+            margin-top: 52px;
+            padding: 8px 0;
+        }
+    }
 
-export const Label = styled.label`
-    font-size: 14px;
-    color: var(--color-gray);
-    margin-bottom: 8px;
-`;
+    .left-column, .right-column, .ad-banner {
+        display: none;
+    }
 
-export const Input = styled.input`
-    height: 40px;
-    border-radius: 4px;
-    border: 1px solid var(--color-separator);
-    padding: 0 8px;
-`;
+    @media (min-width: 1180px) {
+        .left-column, .right-column, .ad-banner {
+            display: unset;
+        }
+    }
 
-export const SubmitButton = styled.button`
-    height: 40px;
-    border-radius: 4px;
-    border: none;
-    background: var(--color-link);
-    color: var(--color-white);
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
+    .middle-column {
+        margin: 0 25px 16px;
+    }
 `;

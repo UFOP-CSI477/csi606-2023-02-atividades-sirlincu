@@ -4,6 +4,7 @@ import { GetAllAlunoController } from '../controller/alunos/GetAllAluno.js';
 import { GetByIdAlunoController } from '../controller/alunos/GetByIdAluno.js';
 import { UpdateAlunoController } from '../controller/alunos/UpdateAluno.js';
 import { DeleteAlunoController } from '../controller/alunos/DeleteAluno.js';
+import { AuthenticateAlunoController } from '../controller/alunos/AuthenticateAluno.js';
 
 const alunoRouter = Router();
 
@@ -21,5 +22,8 @@ alunoRouter.put('/alunos', updateAlunoController.handle);
 
 const deleteAlunoController = new DeleteAlunoController();
 alunoRouter.delete('/alunos', deleteAlunoController.handle);
+
+const authenticateAlunoController = new AuthenticateAlunoController();
+alunoRouter.post('/alunos/authenticate', authenticateAlunoController.handle);
 
 export { alunoRouter };

@@ -4,6 +4,7 @@ import { GetAllFuncionarioController } from '../controller/funcionarios/GetAllFu
 import { GetByIdFuncionarioController } from '../controller/funcionarios/GetByIdFuncionario.js';
 import { UpdateFuncionarioController } from '../controller/funcionarios/UpdateFuncionario.js';
 import { DeleteFuncionarioController } from '../controller/funcionarios/DeleteFuncionario.js';
+import { AuthenticateFuncionarioController } from '../controller/funcionarios/AuthenticateFuncionario.js';
 
 const funcionarioRouter = Router();
 
@@ -21,5 +22,8 @@ funcionarioRouter.put('/funcionarios', updateFuncionarioController.handle);
 
 const deleteFuncionarioController = new DeleteFuncionarioController();
 funcionarioRouter.delete('/funcionarios', deleteFuncionarioController.handle);
+
+const authenticateFuncionarioController = new AuthenticateFuncionarioController();
+funcionarioRouter.post('/funcionarios/authenticate', authenticateFuncionarioController.handle);
 
 export { funcionarioRouter };
