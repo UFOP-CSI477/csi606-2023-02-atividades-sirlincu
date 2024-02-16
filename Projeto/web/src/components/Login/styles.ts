@@ -9,6 +9,7 @@ export const FormContainer = styled.div`
     padding: 16px;
     margin-left: 20%;
     margin-right: 20%;
+    width: 40%;
     border: 1px solid var(--color-separator);
     border-radius: 8px;
     background: var(--color-gray-lighter);
@@ -39,6 +40,10 @@ export const Label = styled.label`
     font-size: 14px;
     color: var(--color-gray);
     margin-bottom: 8px;
+
+    &.register {
+        cursor: pointer;
+    }
 `;
 
 export const Input = styled.input`

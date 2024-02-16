@@ -10,7 +10,7 @@ const DesktopHeader: React.FC = () => {
 
     const [ menuOpen, setMenuOpen ] = React.useState(false);
     const [ usuarioLogado, setUsuarioLogado ] = React.useState(false);
-
+    
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -90,23 +90,27 @@ const DesktopHeader: React.FC = () => {
                             <span>Eu <CaretDownIcon /></span>
                         </button>
                         {menuOpen && (
-                            <div className="dropdown-menu" 
-                                onMouseEnter={openMenu}
-                                onMouseLeave={closeMenu}     
-                            >
-                                
-                            {usuarioLogado ? (
-                                <>
-                                    <Link to="/profile">Perfil</Link>
-                                    <Link to="/login" onClick={logout} >Sair</Link>
-                                </>    
-                            ) : (
-                                <>
-                                    <Link to="/login">Login</Link>
-                                    <Link to="/register">Cadastrar</Link>
-                                </>   
-                            )}
-                            </div> 
+                            <div style={{position: "relative"}}>
+                                <div 
+                                    style={{position: "absolute", left: -100, top: 20}}
+                                    className="dropdown-menu" 
+                                    onMouseEnter={openMenu}
+                                    onMouseLeave={closeMenu}     
+                                >
+                                    
+                                {usuarioLogado ? (
+                                    <>
+                                        <Link to="/profile">Perfil</Link>
+                                        <Link to="/login" onClick={logout} >Sair</Link>
+                                    </>    
+                                ) : (
+                                    <>
+                                        <Link to="/login">Login</Link>
+                                        <Link to="/register">Cadastrar</Link>
+                                    </>   
+                                )}
+                                </div> 
+                            </div>
                         )}
                     </nav>
                 </div>

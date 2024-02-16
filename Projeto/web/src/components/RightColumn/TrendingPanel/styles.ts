@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-&:nth-child(2) {
+  &:nth-child(2) {
     position: sticky;
     top: 64px;
   }

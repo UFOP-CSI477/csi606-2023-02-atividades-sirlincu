@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import api from "../../services/api";
 import { useNavigate } from "react-router-dom";
+import { PessoaInterface } from "../pessoas/ListPessoas";
+import { LocalInterface } from "../locais/ListLocais";
 
 
 const CreateDoacao = () => {
@@ -8,7 +10,7 @@ const CreateDoacao = () => {
     const [ pessoaId, setPessoaId ] = useState(0);
     const [ localColetaId, setLocalColetaId ] = useState(0);
     const [ pessoas, setPessoas ] = useState<PessoaInterface[]>([]);
-    const [ locaisColeta, setLocaisColeta ] = useState<LocalColetaInterface[]>([]);
+    const [ locaisColeta, setLocaisColeta ] = useState<LocalInterface[]>([]);
 
     useEffect(() => {
         api.get('/pessoas')

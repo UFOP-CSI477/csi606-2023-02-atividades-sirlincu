@@ -118,7 +118,6 @@ Content-Type: application/json
 {
     "nome": "Empresa J",
     "email": "contato@empresaJ.com",
-    "senha": "senhaEmpresaJ123",
     "cnpj": "11122233344499",
     "telefone": "(00) 1111-2222",
     "setor": "Telecomunicações",
@@ -164,7 +163,7 @@ Content-Type: application/json
     "descricao": "Estágio para estudantes de telecomunicações",
     "bolsa": 1300.00,
     "requisitos": "Interesse em telecomunicações, conhecimento técnico",
-    "empresaId": 50
+    "empresaId": 6
   }
 
 ### UPDATE

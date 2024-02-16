@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
 import Companies from './pages/Companies';
+
 import JobDetails from './pages/JobDetails';
 import LoginPage from './pages/Login';
 import Profile from './pages/Profile';

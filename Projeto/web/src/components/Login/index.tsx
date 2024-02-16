@@ -47,14 +47,15 @@ const Login: React.FC = () => {
             if(alunoResponse.ok) {
                 const aluno = await alunoResponse.json();
                 localStorage.setItem('usuario', JSON.stringify(aluno));
+                alert('Login efetuado com sucesso');
                 setSuccessMessage('Login efetuado com sucesso');
-                window.location.href = '/';
+                window.location.reload();
                 return;
             } else if (funcionarioResponse.ok) {
                 const funcionario = await funcionarioResponse.json();
                 localStorage.setItem('usuario', JSON.stringify(funcionario));
-                setSuccessMessage('Login efetuado com sucesso');
-                window.location.href = '/';
+                alert('Login efetuado com sucesso');
+                window.location.reload();
                 return;
             } else {
                 setErrorMessage('Email ou senha inválidos');
@@ -80,8 +81,8 @@ const Login: React.FC = () => {
                 </FormField>
                 
                 <SubmitButton type="submit" value="Submit">Login</SubmitButton>
-                <Link to="/register">
-                    <Label>Cadastre-se</Label>
+                <Link to="/register" >                    
+                    <Label className='register'>Cadastre-se</Label>
                 </Link>
             </Form>
 

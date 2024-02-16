@@ -7,9 +7,9 @@ import { Container } from './styles';
 
 const ProfilePanel: React.FC = () => {
 
-  const usuarioLocal = JSON.parse(localStorage.getItem('usuario') || '{}');
+  const usuarioLocal = JSON.parse(localStorage.getItem('usuario') ?? '{}');
   
-  const usuarioLogado = !!usuarioLocal;
+  const usuarioLogado = usuarioLocal && usuarioLocal.nome;
 
   const renderProfileContent = () => {
     if (usuarioLogado) {
@@ -46,8 +46,6 @@ const ProfilePanel: React.FC = () => {
       };
   }
 
-
-
   return (
     <Panel>
       <Container>
@@ -60,15 +58,6 @@ const ProfilePanel: React.FC = () => {
           />
         </Link>
         {renderProfileContent()}
-        {/* <h1>Lincoln Rebouças</h1>
-        <h2>Desenvolvedor Web @ UFOP</h2>
-
-        <div className="separator"></div>
-
-        <div className="key-value">
-          <span className="key">Candidaturas realizadas</span>
-          <span className="value">1.558</span>
-        </div> */}
       </Container>
     </Panel>
   );

@@ -1,62 +1,107 @@
-import React from 'react';
-
+import React, { useEffect, useState } from 'react';
+import api from '../../../services/api';
+import { Link } from 'react-router-dom';
 import Panel from '../../Panel';
 
 import {
-  Container,
-  Row,
-  PostImage,
-  Separator,
-  Avatar,
-  Column,
-  ApplyIcon,
-  ShareIcon,
-  DetailsIcon,
+	Container,
+	Row,
+	Separator,
+	Avatar,
+	Column,
+	ApplyIcon,
+	ShareIcon,
+	DetailsIcon,
 } from './styles';
 
+export interface VagaInterface {
+	id: number;
+	titulo: string;
+	descricao: string;
+	bolsa: number;
+	requisitos: string;
+	empresa: {
+		id: number;
+		nome: string;
+		setor: string;
+};
+}
+
 const FeedPost: React.FC = () => {
-  return (
-    <Panel>
-      <Container>
-        <Row className="heading">
-          <Avatar src="https://i.imgur.com/81RtXfT.jpg" alt="Rocketseat" />
-          <Column>
-            <h3>Rocketseat</h3>//empresa
-            <time>1 sem</time> //criacao
-          </Column>
-        </Row>
-        <Row>
-          <Separator />
-        </Row>
-        <p>TITULO DA VAGA</p>
-        
-        <PostImage
-          src="https://blog.rocketseat.com.br/content/images/2019/05/Painel.png"
-          alt="Rocketseat Blog"
-        />
+	const [ vagas, setVagas ] = useState<VagaInterface[]>([]);
 
-        <Row>
-          <Separator />
-        </Row>
+	useEffect(() => {
+		api.get('/vagas').then(response => {
+		setVagas(response.data);
+		});
+	}, []);
 
-        <Row className="actions">
-          <button>
-            <ApplyIcon />
-            <span>Candidatar</span>
-          </button>
-          <button>
-            <DetailsIcon />
-            <span>Detalhes</span>
-          </button>
-          <button>
-            <ShareIcon />
-            <span>Compartilhar</span>
-          </button>
-          
-        </Row>
-      </Container>
-    </Panel>
-  );
+	const handleCandidatura = async (vagaId: number) => {
+		try {
+			const usuarioLocalString = JSON.parse(localStorage.getItem('usuario') ?? '{}');
+			const usuarioLocal = usuarioLocalString ? JSON.parse(usuarioLocalString) : {};
+
+			if(usuarioLocal && usuarioLocal.tipo === 'aluno') {
+				await api.post('/candidaturas', { 
+					aluno: usuarioLocal.id, 
+					vaga: vagaId,
+					statusId: 1
+				});
+				
+				const response = await api.get('/vagas');
+				setVagas(response.data);
+			} else {
+				console.log('Usuário não é um aluno ou não está logado.');
+			}
+		} catch (error) {
+			console.log("Erro ao criar candidatura: ", error);
+		}
+	}
+
+	return (
+		<>
+			{vagas.map(vaga => (
+				<Panel>
+					<Container>
+						<Row className="heading">
+							<Avatar src="https://i.imgur.com/81RtXfT.jpg" alt="Rocketseat" />
+							<Column>
+								<h3>{vaga.empresa.nome}</h3>
+								<time>{vaga.empresa.setor}</time>
+							</Column>
+						</Row>
+						<Row className="body-title">
+							<span>{vaga.titulo} • R$ {vaga.bolsa}</span>
+						</Row>
+						<Row className="body-content">
+							<p>{vaga.descricao}</p>
+						</Row>
+						<Row>
+							<Separator />
+						</Row>
+						<Row className="actions">
+							<button onClick={() => handleCandidatura(vaga.id) }>
+								<ApplyIcon />
+								<span>Candidatar</span>
+							</button>
+							<Link to={`/vaga/${vaga.id}`}>
+								<button>
+									<DetailsIcon />
+									<span>Detalhes</span>
+								</button>
+							</Link>
+							<Link to={`/vaga/${vaga.id}`}>
+								<button>
+									<ShareIcon />
+									<span>Compartilhar</span>
+								</button>
+							</Link>
+						</Row>
+					</Container>
+				</Panel>
+			))}
+		</>
+	);
 };
 
 export default FeedPost;

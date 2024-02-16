@@ -33,6 +33,18 @@ export const Row = styled.div`
       color: var(--color-gray);
     }
   }
+
+  &.body-title {
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--color-black);
+  }
+  &.body-content {
+    padding: 8px 0;
+    font-size: 14px;
+    color: var(--color-gray);
+  }
+
   &.likes {
     padding: 8px 0;
     font-size: 12px;
@@ -95,10 +107,6 @@ export const Row = styled.div`
       }
     }
   }
-`;
-
-export const PostImage = styled.img`
-  width: 100%;
 `;
 
 export const Separator = styled.div`

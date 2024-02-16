@@ -4,7 +4,7 @@ import { Container } from './styles';
 import MobileHeader from '../../components/MobileHeader';
 import DesktopHeader from '../../components/DesktopHeader';
 import AdBanner from '../../components/AdBanner';
-import LeftColumn from '../../components/LeftColumn';
+import ProfileComponent from '../../components/Profile';
 import GlobalStyles from '../../styles/GlobalStyles';
 
 const Profile: React.FC = () => {
@@ -16,8 +16,7 @@ const Profile: React.FC = () => {
                 <AdBanner />
             </span>
             <main>
-                <LeftColumn />    
-				<h1>Profile</h1>
+                <ProfileComponent />
             </main>
             <GlobalStyles />
         </Container>  

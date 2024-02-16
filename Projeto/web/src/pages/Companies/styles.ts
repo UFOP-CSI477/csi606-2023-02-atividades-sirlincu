@@ -34,4 +34,15 @@ export const Container = styled.div`
     .middle-column {
         margin: 0 25px 16px;
     }
+
+    .companies-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-top: 16px;
+
+        @media (min-width: 1180px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
 `;
